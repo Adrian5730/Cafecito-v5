@@ -57,7 +57,12 @@ label.message {
     text-decoration: none;
 }
 
-.btn-login{
+div.a {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-login {
     position: absolute;
     bottom: -215px;
     background-color: #BA521D;
@@ -71,37 +76,99 @@ label.message {
     left: 15px;
 }
 
-.image-color{
-    position: absolute;
+.image-color {
+    position: fixed;
     bottom: 0;
-    left: 0;
-    z-index: -1;
-    height: 139px;
-    
+    width: 100%;
+    height: auto;
 }
 
-.container-login{
+.container-login {
     position: relative;
 }
 
-@media (min-width: 320px) and (max-height: 480px) {
-    *{
-        background-color: red;
-    }
+ul {
+    position: relative;
+    display: flex;
+    gap: 25px;
 }
 
+ul li {
+    position: relative;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
 
-@media (max-width:400px) {
-    *{
-        background-color: blue;
-    }
+ul li:hover {
+    width: 180px;
+    border-bottom: 0 10px 25px rgba(0, 0, 0, 0.0);
+}
 
-    .image-color{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        height: 156px;
-        width: 100%;
-    }
+ul li::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    background: linear-gradient(45deg, var(--i), var(--j));
+    opacity: 0;
+    transition: 0.5s;
+}
+
+ul li:hover::before {
+    opacity: 1;
+}
+
+ul li::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 60px;
+    background: linear-gradient(45deg, var(--i), var(--j));
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+    filter: blur(15px);
+}
+
+ul li:hover::after{
+    opacity: 0.5;
+}
+
+ul li svg{
+    color: #777;
+    font-size: 1.75em !important;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+}
+
+ul li:hover svg{
+    transform: scale(0);
+    font-size: 1.75em;
+    transition-delay: 0.5s;
+    display: none;
+}
+
+ul li .titulo{
+    color: gray;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: scale(0);
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+
+ul li:hover .titulo{
+    transform: scale(1);
+    transition-delay: 0.25s;
 }
